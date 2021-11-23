@@ -24,6 +24,4 @@ jobs:
         submodules : recursive
     - uses: actboy168/setup-luamake@master
     - run: luamake -platform ${{ matrix.platform }}
-    - run: npm install -g vsce
-    - run: cd publish && vsce publish --target ${{ matrix.platform }} -p ${{ secrets.VSCE_KEY }}
       continue-on-error: true
