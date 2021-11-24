@@ -63,15 +63,15 @@ jobs:
             path: artifact/runtime
 
         - name: Zip Runtime
-          uses: TheDoctor0/zip-release@v0.2.1
+          uses: TheDoctor0/zip-release@master
           with:
             filename: runtime.zip
-            path: artifact/runtime
+            directory: artifact/
         
         - name: Upload Runtime
           uses: actions/upload-release-asset@v1.0.1
           with:
             upload_url: ${{ steps.create_release.outputs.upload_url }}
-            asset_path: runtime.zip
+            asset_path: artifact/runtime.zip
             asset_name: runtime.zip
             asset_content_type: application/tar+gzip
