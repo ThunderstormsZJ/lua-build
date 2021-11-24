@@ -25,10 +25,13 @@ jobs:
       with:
         ref: refs/heads/master
         submodules : recursive
+        
     - name: Luamake
       uses: actboy168/setup-luamake@master
-      run: luamake -platform ${{ matrix.platform }}
+
+    - run: luamake -platform ${{ matrix.platform }}
       continue-on-error: true
+
     - name: Upload
       uses: actions/upload-artifact@master
       with: 
